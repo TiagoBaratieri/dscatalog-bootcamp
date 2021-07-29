@@ -3,6 +3,7 @@ package com.baratieri.dscatalog.services;
 import com.baratieri.dscatalog.dto.RoleDTO;
 import com.baratieri.dscatalog.dto.UserDTO;
 import com.baratieri.dscatalog.dto.UserInsertDTO;
+import com.baratieri.dscatalog.dto.UserUpdateDTO;
 import com.baratieri.dscatalog.entities.Role;
 import com.baratieri.dscatalog.entities.User;
 import com.baratieri.dscatalog.repositories.RoleRepository;
@@ -57,7 +58,7 @@ public class UserService {
 
 
     @Transactional
-    public UserDTO update(Long id, UserDTO dto) {
+    public UserDTO update(Long id, UserUpdateDTO dto) {
         try {
             User entity = repository.getOne(id);
             copyDtoEntity(dto, entity);
