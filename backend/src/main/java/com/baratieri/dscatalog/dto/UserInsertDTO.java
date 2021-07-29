@@ -1,5 +1,8 @@
 package com.baratieri.dscatalog.dto;
 
+import com.baratieri.dscatalog.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO {
     private static final long serialVersionUID = 1L;
 
