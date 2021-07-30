@@ -77,6 +77,10 @@ public class User implements UserDetails, Serializable {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -89,10 +93,6 @@ public class User implements UserDetails, Serializable {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getAuthority()))
                 .collect(Collectors.toList());
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -119,8 +119,6 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return true;
     }
-
-
 
     @Override
     public boolean equals(Object o) {

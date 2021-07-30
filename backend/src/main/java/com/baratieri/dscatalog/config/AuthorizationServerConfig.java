@@ -17,7 +17,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import java.util.Arrays;
-
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -30,7 +29,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Value("${jwt.duration}")
     private Integer jwtDuration;
-
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -65,7 +63,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 
-
         TokenEnhancerChain chain = new TokenEnhancerChain();
         chain.setTokenEnhancers(Arrays.asList(accessTokenConverter, tokenEnhancer));
 
@@ -73,8 +70,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenStore(tokenStore)
                 .accessTokenConverter(accessTokenConverter)
                 .tokenEnhancer(chain);
-
     }
-
-
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
-
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
@@ -28,7 +27,7 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(DataBaseException.class)
-    public ResponseEntity<StandardError> dataBase(DataBaseException e, HttpServletRequest request) {
+    public ResponseEntity<StandardError> database(DataBaseException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
@@ -38,7 +37,6 @@ public class ResourceExceptionHandler {
         err.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
-
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ValidationError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {

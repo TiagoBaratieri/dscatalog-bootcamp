@@ -2,7 +2,6 @@ package com.baratieri.dscatalog.services.validation;
 
 
 import com.baratieri.dscatalog.dto.UserInsertDTO;
-import com.baratieri.dscatalog.dto.UserUpdateDTO;
 import com.baratieri.dscatalog.entities.User;
 import com.baratieri.dscatalog.repositories.UserRepository;
 import com.baratieri.dscatalog.resources.exceptions.FieldMessage;
@@ -40,4 +39,3 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
         return list.isEmpty();
     }
 }
-
