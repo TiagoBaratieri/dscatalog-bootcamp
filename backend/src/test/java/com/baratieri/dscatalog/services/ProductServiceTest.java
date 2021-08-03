@@ -109,16 +109,7 @@ public class ProductServiceTest {
         Assertions.assertNotNull(result);
 
     }
-    @Test
-    public void findAllPagedShouldReturnPage(){
-        Pageable pageable = PageRequest.of(0, 12);
 
-        Page<ProductDTO> result = service.findAllPaged(pageable);
-
-        Assertions.assertNotNull(result);
-
-        Mockito.verify(repository).findAll(pageable);
-    }
 
     @Test
     public void deleteShouldThrowDataBaseExceptionWhenDependentId(){
