@@ -1,6 +1,7 @@
 import ProductCard from 'components/ProductCard/indexs';
 import { Link } from 'react-router-dom';
 import { Product } from 'type/product';
+import './styles.scss';
 
 const Catalog = () => {
   const product: Product = {
@@ -20,7 +21,10 @@ const Catalog = () => {
     ],
   };
   return (
-    <div className="container my-4">
+    <div className="container my-4 catolog-container">
+      <div className="row catalog-title-container">
+        <h1>Catálogo de produtos</h1>
+      </div>
       <div className="row">
         <div className="col-sm-6 col-lg-4 col-xl-3">
           <Link to="/products/1">
