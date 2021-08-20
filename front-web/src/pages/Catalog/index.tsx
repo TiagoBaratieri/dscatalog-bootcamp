@@ -1,3 +1,4 @@
+import Pagination from 'components/Pagination';
 import ProductCard from 'components/ProductCard/indexs';
 import { Link } from 'react-router-dom';
 import { Product } from 'type/product';
@@ -50,6 +51,9 @@ const Catalog = () => {
           <Link to="/products/1">
             <ProductCard product={product} />
           </Link>
+        </div>
+        <div className="row">
+          <Pagination />
         </div>
       </div>
     </div>
