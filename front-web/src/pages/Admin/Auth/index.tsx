@@ -1,5 +1,6 @@
 import { ReactComponent as AuthImage } from 'assets/images/auth.svg';
 import { Route, Switch } from 'react-router';
+import Login from './Login';
 import './styles.scss';
 const Auth = () => {
   return (
@@ -12,7 +13,7 @@ const Auth = () => {
         <div className="auth-form-container">
             <Switch>
                 <Route path="/admin/auth/login">
-                    <h1>Card login</h1>
+                   <Login />
                 </Route>
                 <Route path="/admin/auth/signup">
                     <h1>Card Signup</h1>
