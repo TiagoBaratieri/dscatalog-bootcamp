@@ -16,7 +16,7 @@ const List = () => {
 
     const getProducts = () => {
       const config: AxiosRequestConfig = {
-        method: 'GET',
+        method:'GET',
         url: '/products',
         params: {
           page: 0,

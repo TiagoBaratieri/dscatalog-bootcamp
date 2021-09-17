@@ -1,12 +1,14 @@
 import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import CurrencyInput from 'react-currency-input-field';
+import { useForm, Controller } from 'react-hook-form';
+import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import { Category } from 'type/category';
 import { Product } from 'type/product';
 import { requestBackend } from 'util/request';
+import { toast } from 'react-toastify';
 import './styles.scss';
 
 type UrlParams = {
@@ -16,7 +18,7 @@ type UrlParams = {
 const Form = () => {
   const { productId } = useParams<UrlParams>();
 
-  const isEditing = productId !== 'create';
+  const isEditing = productId !== 'created';
 
   const history = useHistory();
 
@@ -27,6 +29,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    control,
   } = useForm<Product>();
 
   useEffect(() => {
@@ -52,11 +55,9 @@ const Form = () => {
   const onSubmit = (formData: Product) => {
     const data = {
       ...formData,
-      imgUrl: isEditing
-        ? formData.imgUrl
-        : 'https://media.gettyimages.com/photos/living-room-with-a-microsoft-xbox-series-x-home-video-game-console-a-picture-id1229473400?k=20&m=1229473400&s=612x612&w=0&h=ZHcK1UEMY0btQXP2brvKpVHJhnD8NVfUwaCwd2FTjAs=',
-      categories: isEditing ? formData.categories : [{ id: 1, name: '' }],
+      price: String(formData.price).replace(',', '.'),
     };
+
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/products/${productId}` : '/products',
@@ -64,9 +65,14 @@ const Form = () => {
       withCredentials: true,
     };
 
-    requestBackend(config).then(() => {
-      history.push('/admin/products');
-    });
+    requestBackend(config)
+      .then(() => {
+        toast.info('Produto cadastrado com sucess');
+        history.push('/admin/products');
+      })
+      .catch(() => {
+        toast.error('Erro ao cadastrar produto');
+      });
   };
 
   const handleCancel = () => {
@@ -77,9 +83,10 @@ const Form = () => {
     <div className="product-crud-container">
       <div className="base-card product-crud-form-card">
         <h1 className="product-crud-form-title">DADOS DO PRODUTO</h1>
+
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="row prodduct-crud-inputs-container">
-            <div className="col-lg-6 prodduct-crud-input-left-container">
+          <div className="row product-crud-inputs-container">
+            <div className="col-lg-6 product-crud-inputs-left-container">
               <div className="margin-bottom-30">
                 <input
                   {...register('name', {
@@ -96,29 +103,72 @@ const Form = () => {
                   {errors.name?.message}
                 </div>
               </div>
-              <div className="margin-bottom-30">
-                <Select
-                  options={selectCategories}
-                  classNamePrefix="product-crud-select"
-                  isMulti
-                  getOptionLabel={(category: Category) => category.name}
-                  getOptionValue={(category: Category) => String(category.id)}
+
+              <div className="margin-bottom-30 ">
+                <Controller
+                  name="categories"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectCategories}
+                      classNamePrefix="product-crud-select"
+                      isMulti
+                      getOptionLabel={(category: Category) => category.name}
+                      getOptionValue={(category: Category) =>
+                        String(category.id)
+                      }
+                    />
+                  )}
                 />
+                {errors.categories && (
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
+                )}
               </div>
+
+              <div className="margin-bottom-30">
+                <Controller
+                  name="price"
+                  rules={{ required: 'Campo obrigatório' }}
+                  control={control}
+                  render={({ field }) => (
+                    <CurrencyInput
+                      placeholder="Preço"
+                      className={`form-control base-input ${
+                        errors.name ? 'is-invalid' : ''
+                      }`}
+                      disableGroupSeparators={true}
+                      value={field.value}
+                      onValueChange={field.onChange}
+                    />
+                  )}
+                />
+                <div className="invalid-feedback d-block">
+                  {errors.price?.message}
+                </div>
+              </div>
+
               <div className="margin-bottom-30">
                 <input
-                  {...register('price', {
+                  {...register('imgUrl', {
                     required: 'Campo obrigatório',
+                    pattern: {
+                      value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
+                      message: 'Deve ser uma URL válida',
+                    },
                   })}
                   type="text"
                   className={`form-control base-input ${
                     errors.name ? 'is-invalid' : ''
                   }`}
-                  placeholder="Preço"
-                  name="price"
+                  placeholder="URL da imagem do produto"
+                  name="imgUrl"
                 />
                 <div className="invalid-feedback d-block">
-                  {errors.price?.message}
+                  {errors.imgUrl?.message}
                 </div>
               </div>
             </div>
@@ -129,7 +179,7 @@ const Form = () => {
                   {...register('description', {
                     required: 'Campo obrigatório',
                   })}
-                  className={`form-control base-input ${
+                  className={`form-control base-input h-auto ${
                     errors.name ? 'is-invalid' : ''
                   }`}
                   placeholder="Descrição"
