@@ -1,29 +1,55 @@
 import { AxiosRequestConfig } from 'axios';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { Product } from 'type/product';
 import { requestBackend } from 'util/request';
 import './styles.scss';
 
+type UrlParams = {
+  productId: string;
+};
+
 const Form = () => {
+  const { productId } = useParams<UrlParams>();
+
+  const isEditing = productId !== 'create';
+
   const history = useHistory();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Product>();
 
+  useEffect(() => {
+    if (isEditing) {
+      requestBackend({ url: `/products/${productId}` }).then((response) => {
+        const product = response.data as Product;
+
+        setValue('name', product.name);
+        setValue('price', product.price);
+        setValue('description', product.description);
+        setValue('imgUrl', product.imgUrl);
+        setValue('categories', product.categories);
+      });
+    }
+  }, [isEditing, productId, setValue]);
+  
   const onSubmit = (formData: Product) => {
     const data = {
       ...formData,
-      imgUrl:
-        'https://media.gettyimages.com/photos/living-room-with-a-microsoft-xbox-series-x-home-video-game-console-a-picture-id1229473400?k=20&m=1229473400&s=612x612&w=0&h=ZHcK1UEMY0btQXP2brvKpVHJhnD8NVfUwaCwd2FTjAs=',
-      categories: [{ id: 1, name: '' }],
+      imgUrl: isEditing
+        ? formData.imgUrl
+        : 'https://media.gettyimages.com/photos/living-room-with-a-microsoft-xbox-series-x-home-video-game-console-a-picture-id1229473400?k=20&m=1229473400&s=612x612&w=0&h=ZHcK1UEMY0btQXP2brvKpVHJhnD8NVfUwaCwd2FTjAs=',
+      categories: isEditing ? formData.categories : [{ id: 1, name: '' }],
     };
     const config: AxiosRequestConfig = {
-      method: 'POST',
-      url: '/products',
+      method: isEditing ? 'PUT' : 'POST',
+      url: isEditing ? `/products/${productId}` : '/products',
       data,
       withCredentials: true,
     };
