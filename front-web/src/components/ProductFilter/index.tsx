@@ -12,14 +12,9 @@ type ProductFilterData = {
 };
 
 const ProductFilter = () => {
+  const [selectCategories, setSelectCategories] = useState<Category[]>([]);
 
- const [selectCategories, setSelectCategories] = useState<Category[]>([]);
-
-  const {
-    register,
-    handleSubmit,
-    control,
-  } = useForm<ProductFilterData>();
+  const { register, handleSubmit, control } = useForm<ProductFilterData>();
 
   const onSubmit = (formData: ProductFilterData) => {
     console.log('enviou', formData);
@@ -48,7 +43,7 @@ const ProductFilter = () => {
         </div>
         <div className="product-filter-bottom-container">
           <div className="product-filter-category-container">
-          <Controller
+            <Controller
               name="category"
               control={control}
               render={({ field }) => (
@@ -64,7 +59,9 @@ const ProductFilter = () => {
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary">LIMPAR</button>
+          <button className="btn btn-outline-secondary btn-product-filter-clear">
+            LIMPAR <span className="btn-product-filter-word"> FILTRO</span>
+          </button>
         </div>
       </form>
     </div>
