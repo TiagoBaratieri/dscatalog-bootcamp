@@ -5,8 +5,9 @@ import { requestBackendLogin } from 'util/request';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
 import { saveAuthData } from 'util/storage';
-import { getTokenData } from 'util/auth';
+import {} from 'util/auth';
 import './styles.scss';
+import { getTokenData } from 'util/token';
 
 type CredentialDTO = {
   username: string;
