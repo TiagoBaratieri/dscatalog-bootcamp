@@ -128,6 +128,29 @@ const theme = StyleSheet.create({
     flexDirection: "row",
     marginTop: 10,
   },
+
+  inputContainer: {
+    width: "100%",
+    height: 60,
+    marginVertical: 12.5,
+    paddingVertical: 10,
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    alignItems: "center",
+  },
+  searchInput: {
+    width: "90%",
+    height: 40,
+    borderBottomWidth: 0.5,
+    borderBottomColor: colors.bottomLine,
+  },
 });
 
 export { colors, theme, text };
