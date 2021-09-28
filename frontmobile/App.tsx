@@ -1,21 +1,13 @@
 import React from "react";
-import {View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "./src/Routes";
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <View
-    style={{
-      backgroundColor: "#069",
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    }}
-    >
-      <Text>Olá, mundo</Text>
-    </View>
-  )
-};
- 
-   
+   <NavigationContainer>
+      <Routes />
+  </NavigationContainer>
+  );
+}
 
 export default App;
