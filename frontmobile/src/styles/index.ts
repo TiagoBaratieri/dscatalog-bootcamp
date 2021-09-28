@@ -34,6 +34,21 @@ const text = StyleSheet.create({
     color: colors.white,
     marginLeft: 20,
   },
+  productTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  productPrice: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: colors.primary,
+  },
+  currency: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: colors.mediumGray,
+    marginRight: 10,
+  },
 });
 
 const theme = StyleSheet.create({
@@ -86,6 +101,32 @@ const theme = StyleSheet.create({
     borderBottomRightRadius: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  productCard: {
+    width: "100%",
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    alignItems: "center",
+    justifyContent: "space-around",
+    marginVertical: 12.5,
+  },
+  productDescription: {
+    width: "100%",
+    padding: 20,
+    borderTopColor: colors.lightGray,
+    borderTopWidth: 1,
+  },
+  priceContainer: {
+    flexDirection: "row",
+    marginTop: 10,
   },
 });
 
