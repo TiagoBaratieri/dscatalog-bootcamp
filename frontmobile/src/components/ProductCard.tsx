@@ -3,6 +3,7 @@ import {
   View,
   Text,
   Image,
+  ImageSourcePropType,
   TouchableOpacity,
 } from "react-native";
 import { text, theme } from "../styles";
@@ -26,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <TouchableOpacity
       style={theme.productCard}
       activeOpacity={0.8}
-
+      
     >
       <Image
         source={{ uri: imgUrl }}
