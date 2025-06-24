@@ -7,16 +7,16 @@ O dscatalog-bootcamp é uma aplicação full-stack desenvolvida no bootcamp da D
 
 Algumas imagens do projeto:
 
-<div align="center">
-  <img src="front-web/src/assets/images/home-frontend.png" width="600" />
-  <img src="front-web/src/assets/images/catalogo-frontend.png" width="600" />
-  <img src="front-web/src/assets/images/formulario-usuarios-frontend.png" width="600" />
-  <img src="front-web/src/assets/images/produtos-edicao-frontend.png" width="600" />
-  <img src="front-web/src/assets/images/produtos-frontend.png" width="600" />
-  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105129.png" width="600" />
-  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105140.png" width="600" />
-  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105204.png" width="600" />
-  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105231.png" width="600" />
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+  <img src="front-web/src/assets/images/home-frontend.png" alt="Página inicial" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/catalogo-frontend.png" alt="Página de catálogo" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/formulario-usuarios-frontend.png" alt="Formulário de usuários" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/produtos-edicao-frontend.png" alt="Edição de produtos" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/produtos-frontend.png" alt="Listagem de produtos" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105129.png" alt="Detalhes do produto" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105140.png" alt="Confirmação de deleção" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105204.png" alt="Página de login" style="width: 300px; max-width: 100%; height: auto;" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105231.png" alt="Dashboard do administrador" style="width: 300px; max-width: 100%; height: auto;" />
 </div>
 
 DSCatalog - Catálogo de Produtos e Usuários
