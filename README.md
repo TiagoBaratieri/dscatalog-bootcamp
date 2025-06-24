@@ -1,4 +1,7 @@
-
+[![GitHub Issues](https://img.shields.io/github/issues/TiagoBaratieri/dscatalog-bootcamp?style=for-the-badge)](https://github.com/TiagoBaratieri/dscatalog-bootcamp/issues)
+[![GitHub Forks](https://img.shields.io/github/forks/TiagoBaratieri/dscatalog-bootcamp?style=for-the-badge)](https://github.com/TiagoBaratieri/dscatalog-bootcamp/network/members)
+[![GitHub Stars](https://img.shields.io/github/stars/TiagoBaratieri/dscatalog-bootcamp?style=for-the-badge)](https://github.com/TiagoBaratieri/dscatalog-bootcamp/stargazers)
+[![GitHub License](https://img.shields.io/github/license/TiagoBaratieri/dscatalog-bootcamp?style=for-the-badge)](https://github.com/TiagoBaratieri/dscatalog-bootcamp/blob/main/LICENSE)
 
 O dscatalog-bootcamp é uma aplicação full-stack desenvolvida no bootcamp da DevSuperior, focada em um catálogo de produtos, categorias e usuários, com funcionalidades de CRUD, segurança e testes.
 
@@ -155,5 +158,3 @@ Padrões de projeto e boas práticas de desenvolvimento.
 
 Agradecimento especial à DevSuperior e ao Professor Nelio Alves pelo excelente conteúdo e orientação.
 
-📄 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
