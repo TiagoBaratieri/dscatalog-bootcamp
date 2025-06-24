@@ -5,7 +5,19 @@
 
 O dscatalog-bootcamp é uma aplicação full-stack desenvolvida no bootcamp da DevSuperior, focada em um catálogo de produtos, categorias e usuários, com funcionalidades de CRUD, segurança e testes.
 
-Aqui está uma proposta de README, com seções que você pode preencher com detalhes específicos do seu projeto e do seu aprendizado:
+Algumas imagens do projeto:
+
+<div align="center">
+  <img src="front-web/src/assets/images/home-frontend.png" width="600" />
+  <img src="front-web/src/assets/images/catalogo-frontend.png" width="600" />
+  <img src="front-web/src/assets/images/formulario-usuarios-frontend.png" width="600" />
+  <img src="front-web/src/assets/images/produtos-edicao-frontend.png" width="600" />
+  <img src="front-web/src/assets/images/produtos-frontend.png" width="600" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105129.png" width="600" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105140.png" width="600" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105204.png" width="600" />
+  <img src="front-web/src/assets/images/Captura de tela 2025-06-24 105231.png" width="600" />
+</div>
 
 DSCatalog - Catálogo de Produtos e Usuários
 📝 Descrição do Projeto
@@ -29,6 +41,12 @@ Validação de Dados: Utilização de Jakarta Bean Validation para garantir a in
 Padrões REST: Implementação de uma API RESTful seguindo as melhores práticas.
 
 Paginação e Filtros: Funcionalidades de paginação para listagens de produtos e categorias.
+
+Modelo concetual:
+<div>
+  <img src="front-web/src/assets/images/modelo-conceitual (1).png" width="600" />
+</div>
+
 
 🚀 Tecnologias Utilizadas
 Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
